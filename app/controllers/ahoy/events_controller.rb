@@ -34,7 +34,7 @@ module Ahoy
         }
         ahoy.track event["name"], event["properties"], options
       end
-      render json: {}
+      render json: { ids: events.first(Ahoy.max_events_per_request).map { |e| event["id"] }
     end
   end
 end
